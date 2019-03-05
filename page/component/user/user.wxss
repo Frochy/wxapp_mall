@@ -20,6 +20,8 @@
 }
 .header .about{
     float: right;
+    background-color: transparent;
+    
 }
 
 .address-box{

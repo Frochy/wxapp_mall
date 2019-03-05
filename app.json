@@ -9,7 +9,7 @@
     "page/component/details/details",
     "page/component/list/list",
     "page/component/search/search",
-    "page/test/test"
+    "page/component/about/about"
   ],
   "window": {
     "navigationBarTextStyle": "#ffffff",

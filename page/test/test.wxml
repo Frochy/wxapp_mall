@@ -1,3 +1,1 @@
-<view>
-{{title}}
-</view>
+<navigator wx:if='{{status}}' open-type='exit' target='miniProgram'>退出</navigator>

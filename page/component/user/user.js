@@ -5,33 +5,42 @@ Page({
     nickname:'',
     orders:[],
     hasAddress:false,
-    address:{}
+    address:{},
+    isLogin:'',
+    canIUse:wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad(){
-    var self = this;
-    /**
-     * 获取用户信息
-     */
-    wx.getUserInfo({
-      success: function(res){
-        self.setData({
-          thumb: res.userInfo.avatarUrl,
-          nickname: res.userInfo.nickName
-        })
-      }
-    }),
-
-    /**
-     * 发起请求获取订单列表信息
-     */
-    wx.request({
-      url: 'http://www.gdfengshuo.com/api/wx/orders.txt',
-      success(res){
-        self.setData({
-          orders: res.data
-        })
+    var self = this
+    wx.getSetting({
+      success:function(res){
+        if(res.authSetting['scope.userInfo']){
+          wx.getUserInfo({
+            success(res){
+              self.setData({
+                thumb: res.userInfo.avatarUrl,
+                nickname:res.userInfo.nickName,
+                isLogin:true
+              })
+            },
+            fail(){
+              self.setData({
+                isLogin:false
+              })
+            }
+          })
+        }
       }
     })
+    console.log(self.data.thumb + ' ' + self.data.nickname)
+  },
+  bindGetUserInfo(res){
+    if(this.data.isLogin)
+    {
+      wx.navigateTo({
+        url: '../about/about',
+      })
+    }
+    this.onLoad()
   },
   onShow(){
     var self = this;

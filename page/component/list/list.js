@@ -1,19 +1,22 @@
 // page/component/list/list.js
 Page({
-  data:{},
+  data:{
+    news:[],
+    type:''
+  },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-  },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
+    var object = this
+    this.setData({
+      type:options.type
+    })
+    wx.request({
+      url: 'https://api.shinoha.cn/goods?type='+object.data.type,
+      success: function (res) {
+        object.setData({
+          news: res.data
+        })
+        console.log(object.data.news)
+      }
+    })
   }
 })

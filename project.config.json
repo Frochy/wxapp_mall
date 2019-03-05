@@ -4,15 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"autoAudits": false
+		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.98",
+	"libVersion": "2.4.3",
 	"appid": "wx7f1e4708a3597b36",
 	"projectname": "%E9%9B%B6%E9%A3%9F%E5%95%86%E5%9F%8E",
 	"isGameTourist": false,
@@ -34,18 +33,25 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "detail",
-					"pathName": "page/component/details/details",
+					"id": 0,
+					"name": "cart",
+					"pathName": "page/component/cart/cart",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "test",
-					"pathName": "page/test/test"
+					"pathName": "page/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "page/component/user/user",
+					"query": ""
 				}
 			]
 		}

@@ -3,20 +3,25 @@ App({
     status:''
   },
   onLaunch: function () {
-    var self = this
-    wx.request({      
-      url: 'https://api.shinoha.cn/status',
-      success:function(res){}
-    })
     console.log('App Launch')
   },
   onShow: function () {
-    console.log('App Show')
+    var self = this
+    wx.request({
+      url: 'https://api.shinoha.cn/cart?open_id=' + self.globalData.open_id,
+      success(res) {        
+        self.globalData.cart=res.data
+        console.log(self.globalData.cart)
+      }
+    })
   },
   onHide: function () {
     console.log('App Hide')
   },
   globalData: {
-    hasLogin: false
+    hasLogin: false,
+    open_id:1,
+    requestUrl:'https://api.shinoha.cn/img?position=',
+    cart:[]
   }
 })

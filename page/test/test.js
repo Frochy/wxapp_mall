@@ -1,18 +1,17 @@
 Page({
   data:{
-    title:''
+    status:''
   },
   onLoad:function(){
     var that = this
     const wxreq = wx.request({
-      url: 'https://api.shinoha.cn/',
-      data:{
-        text:'123456789'
-      },
+      url: 'https://api.shinoha.cn/status',
       success:function(res){
-        console.log(res.data)
-        that.setData({title:res.data})
-      }
+        that.setData({
+          status:res.data.status
+        })
+        console.log(that.data.status)
+      }       
     })
   }
 })
